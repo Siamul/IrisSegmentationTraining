@@ -1,0 +1,10 @@
+#!/bin/bash
+#$ -m ae
+#$ -M skhan22@nd.edu
+#$ -N r18params
+#$ -q gpu
+#$ -l gpu=4
+
+conda activate CCNet_training_a10
+
+python ccnet_train_circle.py --cuda --cudnn --multi_gpu --batch_size 512 --log_txt --model_type resnet18 --tag "r18" --param_csv "/afs/crc.nd.edu/user/s/skhan22/CCNet/training/pupil-circles-mateusz-coarse-and-openeds_noneg.csv" --train_on_image
